@@ -1,0 +1,8 @@
+<Solution>
+  <Project Path="OrderDispatch.AppHost/OrderDispatch.AppHost.csproj" />
+  <Project Path="OrderDispatch.Mobile/OrderDispatch.Mobile.csproj" />
+  <Project Path="OrderDispatch.ServiceDefaults/OrderDispatch.ServiceDefaults.csproj" />
+  <Project Path="OrderDispatch.Web/OrderDispatch.Web.Client/OrderDispatch.Web.Client.csproj" />
+  <Project Path="OrderDispatch.Web/OrderDispatch.Web/OrderDispatch.Web.csproj" />
+  <Project Path="OrderDispatch.WebApi/OrderDispatch.WebApi.csproj" />
+</Solution>
