@@ -1,0 +1,16 @@
+﻿namespace OrderDispatch.WebApi.Models
+{
+    public class Rider
+    {
+        public int Id { get; set; }
+        public string Name { get; set; }
+
+        public string Phone { get; set; }
+
+        public bool IsFullOrder { get; set; }
+
+        public RiderState State { get; set; } = RiderState.Offline;
+
+        public List<Order> RiderOrders {  get; set; }
+    }
+}

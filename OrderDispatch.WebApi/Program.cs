@@ -1,5 +1,9 @@
-using System.Text.Json.Serialization;
 using Microsoft.AspNetCore.Http.HttpResults;
+using Microsoft.EntityFrameworkCore;
+using Microsoft.Extensions.Configuration;
+using OrderDispatch.WebApi.Datebase;
+using OrderDispatch.WebApi.Endpoints;
+using System.Text.Json.Serialization;
 
 namespace OrderDispatch.WebApi;
 
@@ -14,6 +18,8 @@ public class Program
         {
             options.SerializerOptions.TypeInfoResolverChain.Insert(0, AppJsonSerializerContext.Default);
         });
+
+        builder.Services.AddDbContext<DispatchContext>(option => option.UseSqlite(builder.Configuration.GetConnectionString("DbConnect")));
 
         // Learn more about configuring OpenAPI at https://aka.ms/aspnet/openapi
         builder.Services.AddOpenApi();

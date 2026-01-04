@@ -1,6 +1,6 @@
 ﻿using Microsoft.AspNetCore.Mvc.RazorPages;
 
-namespace OrderDispatch.WebApi
+namespace OrderDispatch.WebApi.Endpoints
 {
     public static class ToDoApi
     {
