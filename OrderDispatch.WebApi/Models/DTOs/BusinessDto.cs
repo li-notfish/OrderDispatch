@@ -1,5 +1,8 @@
-﻿namespace OrderDispatch.WebApi.Models.DTOs
+﻿using OrderDispatch.WebApi.Attributes;
+
+namespace OrderDispatch.WebApi.Models.DTOs
 {
+    [AppJsonSerializer]
     public class BusinessDto
     {
         public int Id { get; set; }

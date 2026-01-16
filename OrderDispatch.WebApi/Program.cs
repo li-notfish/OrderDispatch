@@ -1,8 +1,10 @@
 using Microsoft.AspNetCore.Http.HttpResults;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
+using OrderDispatch.WebApi.Attributes;
 using OrderDispatch.WebApi.Datebase;
 using OrderDispatch.WebApi.Endpoints;
+using OrderDispatch.WebApi.Models.DTOs;
 using System.Text.Json.Serialization;
 
 namespace OrderDispatch.WebApi;
@@ -39,12 +41,4 @@ public class Program
 
         app.Run();
     }
-}
-
-public record Todo(int Id, string? Title, DateOnly? DueBy = null, bool IsComplete = false);
-
-[JsonSerializable(typeof(Todo[]))]
-internal partial class AppJsonSerializerContext : JsonSerializerContext
-{
-
 }

@@ -1,5 +1,8 @@
-﻿namespace OrderDispatch.WebApi.Models.DTOs
+﻿using OrderDispatch.WebApi.Attributes;
+
+namespace OrderDispatch.WebApi.Models.DTOs
 {
+    [AppJsonSerializer]
     public class OrderCustomerInfoDto
     {
         //收货人信息
