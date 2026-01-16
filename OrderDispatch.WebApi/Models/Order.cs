@@ -1,4 +1,6 @@
-﻿namespace OrderDispatch.WebApi.Models
+﻿using Microsoft.EntityFrameworkCore;
+
+namespace OrderDispatch.WebApi.Models
 {
     public class Order
     {

@@ -2,6 +2,8 @@
 
 namespace OrderDispatch.WebApi.Endpoints
 {
+    public record Todo(int Id, string? Title, DateOnly? DueBy = null, bool IsComplete = false);
+
     public static class ToDoApi
     {
         static Todo[] sampleTodos =

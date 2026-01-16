@@ -20,10 +20,35 @@ namespace OrderDispatch.WebApi.Datebase
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
-            modelBuilder.Entity<Order>().ToTable("Order");
-            modelBuilder.Entity<Rider>().ToTable("Rider");
-            modelBuilder.Entity<Business>().ToTable("Business");
-            modelBuilder.Entity<OrderItem>().ToTable("OrderItem");
+            modelBuilder.Entity<Order>(order =>
+            {
+                order.ToTable("Orders");
+                order.HasKey(o => o.Id);
+
+                order.HasMany(o => o.Items)
+                .WithOne(oi => oi.Order)
+                .HasForeignKey(oi => oi.OrderId);
+
+                order.HasOne(o => o.Business)
+                .WithMany(b => b.BusOrders)
+                .HasForeignKey(o => o.BusinessId);
+
+                order.HasOne(o => o.Rider)
+                .WithMany(r => r.RiderOrders)
+                .HasForeignKey(o => o.RiderId);
+            });
+
+            modelBuilder.Entity<Rider>()
+                .ToTable("Riders")
+                .HasKey(r => r.Id);
+
+            modelBuilder.Entity<Business>()
+                .ToTable("Businesses")
+                .HasKey(b => b.Id);
+
+            modelBuilder.Entity<OrderItem>()
+                .ToTable("OrderItems")
+                .HasKey(oi => new { oi.Id,oi.OrderId });
         }
     }
 }
