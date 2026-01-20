@@ -3,16 +3,25 @@
 // 如果新增了 DTO，请右键点击 JsonContext.tt 选择 "运行自定义工具"。
 
 using System.Text.Json.Serialization;
+using OrderDispatch.WebApi.Endpoints;
 
 namespace OrderDispatch.WebApi
 {
     [JsonSerializable(typeof(global::OrderDispatch.WebApi.Models.DTOs.BusinessDto[]))]
+    [JsonSerializable(typeof(IEnumerable<global::OrderDispatch.WebApi.Models.DTOs.BusinessDto>))]
     [JsonSerializable(typeof(global::OrderDispatch.WebApi.Models.DTOs.OrderBasicInfoDto[]))]
+    [JsonSerializable(typeof(IEnumerable<global::OrderDispatch.WebApi.Models.DTOs.OrderBasicInfoDto>))]
     [JsonSerializable(typeof(global::OrderDispatch.WebApi.Models.DTOs.OrderCustomerInfoDto[]))]
+    [JsonSerializable(typeof(IEnumerable<global::OrderDispatch.WebApi.Models.DTOs.OrderCustomerInfoDto>))]
     [JsonSerializable(typeof(global::OrderDispatch.WebApi.Models.DTOs.OrderDeliveryInfoDto[]))]
+    [JsonSerializable(typeof(IEnumerable<global::OrderDispatch.WebApi.Models.DTOs.OrderDeliveryInfoDto>))]
     [JsonSerializable(typeof(global::OrderDispatch.WebApi.Models.DTOs.OrderDto[]))]
+    [JsonSerializable(typeof(IEnumerable<global::OrderDispatch.WebApi.Models.DTOs.OrderDto>))]
     [JsonSerializable(typeof(global::OrderDispatch.WebApi.Models.DTOs.OrderItemDto[]))]
+    [JsonSerializable(typeof(IEnumerable<global::OrderDispatch.WebApi.Models.DTOs.OrderItemDto>))]
     [JsonSerializable(typeof(global::OrderDispatch.WebApi.Models.DTOs.RiderDto[]))]
+    [JsonSerializable(typeof(IEnumerable<global::OrderDispatch.WebApi.Models.DTOs.RiderDto>))]
+    [JsonSerializable(typeof(Todo[]))]
     internal partial class AppJsonSerializerContext : JsonSerializerContext
     {
     }

@@ -10,6 +10,7 @@
 // 如果新增了 DTO，请右键点击 JsonContext.tt 选择 "运行自定义工具"。
 
 using System.Text.Json.Serialization;
+using OrderDispatch.WebApi.Endpoints;
 
 namespace OrderDispatch.WebApi
 {
@@ -53,9 +54,11 @@ namespace OrderDispatch.WebApi
     {
 #>
     [JsonSerializable(typeof(global::<#= type #>[]))]
+    [JsonSerializable(typeof(IEnumerable<global::<#= type #>>))]
 <#
     }
 #>
+    [JsonSerializable(typeof(Todo[]))]
     internal partial class AppJsonSerializerContext : JsonSerializerContext
     {
     }

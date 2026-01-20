@@ -5,6 +5,7 @@ using OrderDispatch.WebApi.Attributes;
 using OrderDispatch.WebApi.Datebase;
 using OrderDispatch.WebApi.Endpoints;
 using OrderDispatch.WebApi.Models.DTOs;
+using OrderDispatch.WebApi.Repositories;
 using System.Text.Json.Serialization;
 
 namespace OrderDispatch.WebApi;
@@ -23,6 +24,8 @@ public class Program
 
         builder.Services.AddDbContext<DispatchContext>(option => option.UseSqlite(builder.Configuration.GetConnectionString("DbConnect")));
 
+        builder.Services.AddScoped<IBaseRepository<RiderDto>, RiderRepository>();
+
         // Learn more about configuring OpenAPI at https://aka.ms/aspnet/openapi
         builder.Services.AddOpenApi();
 
@@ -38,6 +41,9 @@ public class Program
         app.MapGroup("/todoitems")
             .MapTodoApiEndpoints()
             .WithTags("Todo Items");
+
+        app.MapGroup("/riders")
+            .MapRiderEndpoints();
 
         app.Run();
     }
